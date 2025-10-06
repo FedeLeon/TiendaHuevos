@@ -25,24 +25,44 @@
         </div>
       </div>
 
-      <div style="background:#0f0f0f; border:1px solid #232323; border-radius:10px; padding:16px;">
-        <p style="margin:0 0 10px 0; font-weight:800; letter-spacing:.4px;">Hacé tu pedido ahora</p>
-        <p style="margin:0 0 10px 0;">
-        <a href="https://wa.me/549XXXXXXXXXX" class="ico" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.3L2 22l4.8-1.2A11 11 0 1 0 20.5 3.5ZM12 20.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-2.5.6.7-2.4-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-5.9c-.2-.1-1.3-.6-1.5-.7s-.3-.1-.5.1-.6.7-.7.8-.3.2-.5.1a6.6 6.6 0 0 1-2-1.2 7.6 7.6 0 0 1-1.4-1.7c-.1-.2 0-.3.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.3 0-.4 0-.5-.2-.8c-.1-.2-.5-.5-.7-.6s-.4-.2-.6-.2h-.5c-.2 0-.5 0-.7.3s-.9.8-.9 2 .9 2.3 1 2.4 1.8 2.6 4.3 3.6l.6.2c.6.2 1.2.2 1.6.1a2.8 2.8 0 0 0 1.8-1.2c.2-.4.2-.9.1-1 0-.2-.2-.2-.4-.3Z"/></svg></a>
+      <div class="cta__pedido">
+        <p class="cta__pedido-title">Hacé tu pedido ahora</p>
 
-          <a class="btn" href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Hola%20Clara%20y%20Ema,%20quiero%20hacer%20un%20pedido%20B2C%20🙂" target="_blank" rel="noopener" style="background:#25D366; border-color:#1fb457; color:#0a2614;">
-            Escribir por WhatsApp
-          </a>
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 12px;">
-          <a class="btn" style="background:#1b1b1b;" target="_blank" rel="noopener"
-             href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Quiero%20XXG%20x15%20(80-100g)%20por%20favor.">XXG ×15</a>
-          <a class="btn" style="background:#1b1b1b;" target="_blank" rel="noopener"
-             href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Quiero%20XG%20x15%20(74-79g)%20por%20favor.">XG ×15</a>
-          <a class="btn" style="background:#1b1b1b;" target="_blank" rel="noopener"
-             href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Quiero%20G%20x30%20(66-73g)%20por%20favor.">G ×30</a>
+        <!-- Icono de WhatsApp a color -->
+        <div class="cta__pedido-icon">
+          <svg width="48" height="48" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1
+      c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z" fill="#25D366" />
+            <path d="M320.8 297.3c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8s-14.3 18-17.6 21.8c-3.2 3.7-6.5 4.2-12 1.4
+      -32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1
+      -41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8
+      6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1
+      59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4
+      4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" fill="#FFFFFF" />
+          </svg>
+        </div>
+
+        <!-- Botón principal -->
+        <a class="btn btn--wsp"
+          href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Hola%20Clara%20y%20Ema,%20quiero%20hacer%20un%20pedido%20B2C%20🙂"
+          target="_blank" rel="noopener">
+          Escribir por WhatsApp
+        </a>
+
+        <!-- Botones de tamaños -->
+        <div class="cta__pedido-options">
+          <a class="btn btn--dark"
+            href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Quiero%20XXG%20x15%20(80-100g)%20por%20favor.">XXG
+            ×15</a>
+          <a class="btn btn--dark"
+            href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Quiero%20XG%20x15%20(74-79g)%20por%20favor.">XG
+            ×15</a>
+          <a class="btn btn--dark"
+            href="https://wa.me/<?= urlencode($SITE['whatsapp']) ?>?text=Quiero%20G%20x30%20(66-73g)%20por%20favor.">G
+            ×30</a>
         </div>
       </div>
+
     </div>
 
     <p class="cta__text" style="max-width:900px; text-transform:none;">

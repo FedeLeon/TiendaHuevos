@@ -5,7 +5,7 @@
   overflow: visible; /* <— antes estaba hidden */
   padding: 36px 0 0;
   min-height: 62vh;
-  z-index: 10; /* <— asegura que esté encima de bloques siguientes */
+  z-index: 10000; /* por encima del navbar */
 }
 
 .hero__grid {
@@ -39,7 +39,7 @@
   align-items: flex-end;
   padding-bottom: 18px;
   position: relative;
-  z-index: 999; /* <— por encima de todo */
+  z-index: 999;
 }
 
 .hero__media img {
@@ -48,9 +48,9 @@
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 10px 30px rgba(0,0,0,.55));
-  transform: rotate(8deg); /* <— inclinación hacia la derecha */
+  transform: rotate(8deg) translateY(20vh) translateX(10vh);
   position: relative;
-  z-index: 9999; /* <— asegura estar encima del navbar */
+  z-index: 9999;
   pointer-events: none;
 }
 
@@ -104,9 +104,9 @@
     pointer-events: none;
     z-index: 9999;
   }
+
   .hero__media img {
-    width: clamp(380px, 34vw, 640px);
-    transform: rotate(8deg) translateY(20vh) translateX(10vh); /* 👈 Baja la imagen 50px */
+    transform: scale(1.2) rotate(8deg) translateY(12vh) translateX(10vh);
   }
 }
 
