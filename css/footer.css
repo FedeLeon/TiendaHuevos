@@ -1,0 +1,14 @@
+/* ===================== FOOTER ===================== */
+.footer .wrap{ padding-top:28px; padding-bottom:18px; }
+.footer small{ color:#bbb; }
+
+/* 3 columnas alineadas en desktop */
+@media (min-width:900px){
+  .footer .wrap > div:first-child{
+    display:grid !important;
+    grid-template-columns:1.1fr .9fr 1fr !important;  /* marca / nav / contacto */
+    gap:32px !important; align-items:start !important;
+  }
+  .footer .brand{ height:42px; padding:6px 10px; }
+  .footer .brand img{ height:22px; }
+}

@@ -1,0 +1,30 @@
+/* ===================== HISTORIA ===================== */
+.historia .wrap{ padding-top:34px; padding-bottom:32px; }
+.historia__title h2{
+  font-size:70px; line-height:1.02; margin:0 0 14px 0;
+  text-transform:uppercase; letter-spacing:1.5px;
+}
+.historia__grid{ display:grid; grid-template-columns:1fr; gap:12px; }
+.historia__text p{
+  margin:0; font-size:20.5px; color:#2a1200;
+  background:rgba(0,0,0,.06); padding:10px; border-radius:3px;
+}
+.historia__pic{
+  position:relative; background:#111; padding:6px; border-radius:2px;
+  box-shadow:0 6px 12px rgba(0,0,0,.25);
+}
+.historia__pic img{ display:block; width:100%; height:220px; object-fit:cover; background:#333; }
+.historia__pic-label{
+  position:absolute; bottom:6px; left:6px; font-size:10px; color:#fff;
+  background:rgba(0,0,0,.6); padding:2px 6px; border-radius:2px;
+}
+
+/* Responsive */
+@media (min-width:640px){
+  .historia__grid{ grid-template-columns:1.2fr .9fr; }
+  .historia__pic img{ height:260px; }
+}
+@media (min-width:1200px){
+  .wrap{ padding-left:32px; padding-right:32px; }
+  .historia__pic img{ height:360px; }
+}

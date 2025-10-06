@@ -1,0 +1,36 @@
+/* ===================== NAVBAR ===================== */
+.topbar{
+    background:var(--black);
+    border-bottom:1px solid #1f1f1f;
+    position:sticky; top:0; z-index:50;
+  }
+  .topbar .container{
+    height:76px;
+    display:flex; align-items:center; gap:20px;
+  }
+  
+  /* Logo */
+  .brand{
+    display:inline-flex; align-items:center; justify-content:center;
+    height:48px; padding:6px 12px;
+    border:1px solid #464646; background:#0f0f0f; text-decoration:none;
+  }
+  .brand img{ display:block; height:28px; width:auto; filter:invert(1); }
+  
+  /* Navegación + redes */
+  .nav{ margin-left:auto; display:flex; align-items:center; gap:26px; }
+  .nav a{
+    color:#d8d8d8; text-decoration:none; font-size:14px;
+    letter-spacing:.42px; text-transform:uppercase;
+  }
+  .nav a:hover{ color:#fff; }
+  
+  .social{ display:flex; align-items:center; gap:12px; margin-left:10px; }
+  .ico{
+    width:34px; height:34px;
+    display:inline-flex; align-items:center; justify-content:center;
+    color:#fff; text-decoration:none; border:1px solid #3a3a3a; background:#0f0f0f;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .ico:hover{ border-color:#5a5a5a; transform:translateY(-1px); }
+  

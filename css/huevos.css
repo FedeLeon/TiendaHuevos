@@ -1,0 +1,323 @@
+/* ===================== HUEVOS / PRESENTACIONES — LAYOUT SIMÉTRICO ===================== */
+
+/* Alturas de los carrousels por breakpoint (tuneables) */
+:root{
+    --car-h: 230px;   /* mobile */
+  }
+  @media (min-width: 640px){
+    :root{ --car-h: 280px; }  /* tablet */
+  }
+  @media (min-width: 900px){
+    :root{ --car-h: 360px; }  /* desktop base */
+  }
+  @media (min-width: 1200px){
+    :root{ --car-h: 420px; }  /* desktop grande */
+  }
+  
+  /* Encabezado del bloque */
+  .huevos .wrap{ padding-top:28px; padding-bottom:30px; }
+  .huevos__head{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+    margin-bottom: 10px;
+  }
+  
+  /* GRID 2 columnas iguales y bien estiradas */
+  .huevos__grid{
+    display:grid;
+    grid-template-columns: 1fr;      /* mobile */
+    gap: 24px;
+    margin-top: 8px;
+    align-items: stretch;             /* ambas columnas misma altura óptica */
+  }
+  @media (min-width: 900px){
+    .huevos__grid{
+      grid-template-columns: 1fr 1fr; /* 2 columnas simétricas */
+    }
+  }
+  
+  /* Cada columna es un flex vertical: título + carrousel llenando el alto */
+  .huevos__col{
+    display:flex;
+    flex-direction: column;
+    min-width: 0;      /* evita overflow por contenido largo */
+  }
+  .huevos__coltitle{
+    margin: 0 0 10px 0;
+    font-weight: 900;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #2a1200;
+  }
+  
+  /* ====== CAROUSEL BASE ====== */
+  .carousel{
+    position: relative;
+    background: rgba(0,0,0,.06);
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 12px;
+    padding: 10px;
+    height: var(--car-h);                 /* altura fija homogénea */
+    display:flex;
+    flex-direction: column;
+  }
+  .carousel__viewport{
+    /* que el viewport ocupe todo el alto disponible del contenedor */
+    flex: 1 1 auto;
+    min-height: 0;                        /* para que flex calcule bien */
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 36px;                    /* deja lugar a los botones */
+  }
+  .carousel__viewport::-webkit-scrollbar{ height: 10px; }
+  .carousel__viewport::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.15); border-radius: 999px; }
+  
+  /* Botones prev/next centrados y dentro del bloque */
+  .carousel__btn{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    width: 38px; height: 38px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.18);
+    background: #fff8;
+    backdrop-filter: blur(4px);
+    color:#1b1b1b;
+    cursor:pointer;
+    z-index: 2;
+    user-select: none;
+  }
+  .carousel__btn:hover{ background:#fff; }
+  .carousel__btn--prev{ left: 6px; }
+  .carousel__btn--next{ right: 6px; }
+  
+  /* ====== SLIDE: TARJETA DE TAMAÑOS (imagen a la izquierda, texto a la derecha) ====== */
+  .eggcard{
+    scroll-snap-align: start;
+    position: relative;
+    background: #fff;
+    color: #1b1b1b;
+    border-radius: 12px;
+    height: calc(var(--car-h) - 24px);   /* misma altura que el viewport menos paddings */
+    box-shadow: 0 10px 22px rgba(0,0,0,.12);
+    border: 1px solid #f1f1f1;
+    display: flex;
+    align-items: center;
+    padding: 18px 18px 18px 220px;       /* reserva para la imagen */
+  }
+  @media (min-width: 1200px){
+    .eggcard{ padding-left: 250px; }
+  }
+  .eggcard__img{
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(var(--car-h) * .65);    /* escala vertical consistente */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,.10));
+    pointer-events: none;
+  }
+  .eggcard__copy{ max-width: 680px; }
+  .eggcard__title{
+    margin: 0 0 4px 0;
+    font-size: clamp(18px, 2.1vw, 24px);
+    font-weight: 900;
+    letter-spacing: .2px;
+    line-height: 1.12;
+  }
+  .eggcard__grams{
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #444;
+  }
+  .eggcard__bullets{
+    margin: 0;
+    padding-left: 18px;
+    font-size: 14px;
+  }
+  .eggcard__bullets li{ margin: 4px 0; }
+  
+  /* ====== SLIDE: TARJETA DE PRESENTACIONES (imagen llena) ====== */
+  .presentcard{
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 12px;
+    height: calc(var(--car-h) - 24px);
+    border: 1px solid #f1f1f1;
+    box-shadow: 0 10px 22px rgba(0,0,0,.10);
+    display:flex; align-items:center; justify-content:center;
+    padding: 10px;
+  }
+  .presentcard img{
+    display:block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #eee;
+  }
+  
+  /* Pequeños ajustes tipográficos del subtítulo de columna */
+  .huevos__coltitle{ opacity:.9; letter-spacing:.5px; }
+  
+  /* ======= FIX: que no se vea el slide siguiente ======= */
+.carousel{
+    overflow: hidden;                /* recorta lo que se pase del contenedor */
+    padding: 10px 0;                 /* sin relleno lateral aquí */
+  }
+  
+  .carousel__viewport{
+    grid-auto-columns: 100%;         /* cada slide = 100% del viewport */
+    gap: 0;                          /* sin separación entre slides */
+    padding: 0;                      /* sin padding que deje “ventanas” */
+    overflow-x: auto;                /* seguimos pudiendo scrollear */
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* los botones quedan sobrepuestos, centrados verticalmente */
+  .carousel__btn{
+    left: auto; right: auto;         /* nos aseguramos que no tomen padding */
+  }
+  .carousel__btn--prev{ left: 8px; }
+  .carousel__btn--next{ right: 8px; }
+  
+  /* los slides ocupan exactamente el ancho disponible */
+  .eggcard,
+  .presentcard{
+    width: 100%;
+    height: calc(var(--car-h) - 24px);  /* misma altura que ya venías usando */
+  }
+  
+  /* opcional: si querés un “aire” lateral sin que se vea el próximo slide,
+     agregá padding al interior de la tarjeta, no al viewport */
+  .eggcard{ padding-right: 18px; padding-left: 220px; }
+  .presentcard{ padding: 12px; }
+  
+  /* ===================== HUEVITOS — ESTILO “DELUXE” ===================== */
+/* Tips:
+   - Podés setear el color y texto del badge por tarjeta con custom props:
+     <article class="eggcard" style="--accent:#ff8a00;--label:'XXG';">...</article>
+   - Abajo también dejo un mapping automático por nth-child si no querés inline.
+*/
+
+.eggcard{
+    /* acentos configurables por tarjeta */
+    --accent: #ff8a00;      /* color del tamaño */
+    --label: 'Tamaño';
+  
+    position: relative;
+    background:
+      linear-gradient(180deg, #ffffff 0%, #ffffff 75%, #fafafa 100%); /* base suave */
+    border-radius: 16px;
+    border: 1px solid #ececec;
+    box-shadow:
+      0 10px 22px rgba(0,0,0,.12),
+      inset 0 0 0 1px rgba(255,255,255,.7);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  
+  /* Tira de color finita al costado (como “filete” de acento) */
+  .eggcard::after{
+    content:"";
+    position:absolute;
+    left:0; top:10px; bottom:10px;
+    width:6px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent), #fff 15%), var(--accent));
+    box-shadow: 0 0 0 1px rgba(0,0,0,.03);
+  }
+  
+  /* Chapita / badge (texto desde --label) */
+  .eggcard::before{
+    content: var(--label);
+    position:absolute;
+    top:12px; right:12px;
+    font: 800 11px/1 system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    color:#1b1b1b;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent), #fff 35%), var(--accent));
+    padding:6px 10px;
+    border-radius:999px;
+    letter-spacing:.4px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.10), inset 0 0 0 1px rgba(255,255,255,.6);
+  }
+  
+  /* Micro-interacción */
+  .eggcard:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(0,0,0,.16);
+    border-color: color-mix(in srgb, var(--accent), #eaeaea 60%);
+  }
+  
+  /* Imagen con leve “pop” al hover */
+  .eggcard__img{
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,.15));
+    transition: transform .2s ease;
+  }
+  .eggcard:hover .eggcard__img{
+    transform: translateY(-50%) rotate(-3deg) scale(1.04);
+  }
+  
+  /* Título con subrayado de acento */
+  .eggcard__title{
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .eggcard__title::after{
+    content:"";
+    position:absolute; left:0; bottom:-6px;
+    width:84px; height:6px;
+    border-radius:4px;
+    background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent), #fff 35%));
+    opacity:.9;
+  }
+  
+  /* Gramajes como “píldora” */
+  .eggcard__grams{
+    display:inline-block;
+    padding:4px 8px;
+    border-radius:999px;
+    background: #f4f4f4;
+    color:#333;
+    font-size: 13px;
+    box-shadow: inset 0 0 0 1px #e9e9e9;
+  }
+  
+  /* Bullets personalizados con el acento */
+  .eggcard__bullets{ list-style: none; padding-left: 0; }
+  .eggcard__bullets li{
+    position: relative;
+    padding-left: 16px;
+  }
+  .eggcard__bullets li::before{
+    content:"";
+    position:absolute; left:0; top:.55em;
+    width:8px; height:8px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent), #fff 65%);
+  }
+  
+  /* ====== Mapeo automático por posición (opcional) ======
+     Si no querés pasar --label/--accent inline, esto pone colores y texto por slide.
+     Ajustá el orden a tus tamaños reales.
+  */
+  .carousel--sizes .eggcard:nth-child(1){ --accent:#ff7a7a; --label:'XXG'; }
+  .carousel--sizes .eggcard:nth-child(2){ --accent:#ffb057; --label:'XG'; }
+  .carousel--sizes .eggcard:nth-child(3){ --accent:#ffd166; --label:'G'; }
+  .carousel--sizes .eggcard:nth-child(4){ --accent:#7fd1a1; --label:'M'; }
+  
+  /* Pequeños ajustes responsivos al alto del bloque que ya definiste */
+  @media (min-width: 1200px){
+    .eggcard__title::after{ width:100px; }
+  }
+  

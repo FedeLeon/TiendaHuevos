@@ -1,0 +1,25 @@
+/* ===================== B2C / COMPRA DIRECTA ===================== */
+.cta__text{ font-size:14px; text-transform:none; letter-spacing:.4px; opacity:.92; margin-bottom:2vw; }
+
+/* Reordenado sin tocar tu HTML: el contenedor es el primer DIV después del H2 */
+.cta .wrap > h2 + div{
+  display:grid !important;
+  gap:18px !important;
+  grid-template-columns:1fr !important;   /* mobile */
+  align-items:start;
+}
+
+/* Desktop: dos columnas (form izquierda / info derecha) */
+@media (min-width:900px){
+  .cta .wrap > h2 + div{
+    grid-template-columns:1.05fr .95fr !important;
+    gap:24px !important;
+  }
+  .cta .wrap > h2 + div > div:nth-child(1){ order:2; } /* info -> derecha */
+  .cta .wrap > h2 + div > div:nth-child(2){ order:1; } /* CTA  -> izquierda */
+}
+
+/* Tarjeta base (por si la usás) */
+.cta-card{
+  background:#0f0f0f; border:1px solid #232323; border-radius:10px; padding:16px;
+}
