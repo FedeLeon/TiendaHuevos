@@ -1,72 +1,96 @@
-/* ===================== FOOTER HORIZONTAL ===================== */
-
+/* ===================== FOOTER ===================== */
 .footer {
-  background: var(--black);
-  color: #d8d8d8;
-  padding: 30px 0;
+  background: #0a0a0a;
+  color: #fff;
+  padding: 10px 0;
 }
 
 .footer__row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap; /* 👈 evita que se apile */
+  align-items: center;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
-.footer__logo {
-  height: 58px; /* logo más grande */
-  width: auto;
-  display: block;
-  filter: invert(1);
+/* Menú lateral izquierdo */
+.footer__menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__menu li {
+  margin: 6px 0;
+}
+.footer__menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .6px;
+  transition: opacity .2s ease;
+}
+.footer__menu a:hover {
+  opacity: .7;
 }
 
+/* Huevito al centro */
+.footer__egg {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.footer__egg img {
+  width: 120px;
+  height: auto;
+  transition: transform .3s ease;
+  cursor: pointer;
+}
+.footer__egg img:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* Contacto a la derecha */
 .footer__contact {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  min-width: 200px;
+  gap: 6px;
+  text-align: left;
 }
-
-.footer__social {
-  display: flex;
+.footer__contact a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
+  transition: opacity .2s ease;
+}
+.footer__contact a:hover {
+  opacity: .8;
 }
 
-.footer__bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
-  color: #9a9a9a;
-  font-size: 13px;
-  border-top: 1px solid #262626;
-  padding-top: 14px;
-}
-
-/* Íconos SVG coloridos */
-.footer__social svg {
-  width: 22px;
-  height: 22px;
-  transition: transform 0.2s ease;
-}
-.footer__social a:hover svg {
-  transform: scale(1.1);
-}
-
-/* Móvil (mantener en fila pero más compactos) */
-@media (max-width: 700px) {
+/* Responsive */
+@media (max-width: 800px) {
   .footer__row {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 20px;
+  }
+  .footer__menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .footer__contact {
     align-items: center;
+    text-align: center;
   }
+}
+
+.footer__egg img {
+  width: 200px;   /* antes 120px → más grande */
+  height: auto;
+  transition: transform .3s ease;
+  cursor: pointer;
+}
+.footer__egg img:hover {
+  transform: scale(1.1) rotate(-3deg);
 }

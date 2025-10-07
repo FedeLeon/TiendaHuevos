@@ -11,7 +11,7 @@
   text-align: center;
 }
 .subs__subtitle {
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.5;
   max-width: 880px;
   margin: 10px auto;
@@ -96,7 +96,7 @@
 /* listas dentro de tarjetas */
 .subs__aside .steps,
 .subs__aside .bullets {
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.5;
   padding-left: 0;
   list-style-position: inside;
@@ -144,7 +144,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: .6px;
-  font-size: 14px;
+  font-size: 25px;
   color: #2a1200;
   margin: 0 0 10px 0;
   text-align: center;
