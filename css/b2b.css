@@ -1,284 +1,117 @@
-/* ===================== B2B / FORM + SUSCRIPCIONES ===================== */
-.b2b .wrap{ padding-top:34px; padding-bottom:38px; }
-.b2b__grid{ display:grid; gap:22px; grid-template-columns:1fr; }
-.b2b__copy .b2b__lead{ margin:8px 0 12px; font-size:16px; }
-.b2b__bullets{ margin:0 0 16px 18px; padding:0; font-size:14px; }
-.b2b__bullets li{ margin:6px 0; }
-
-/* Botones reutilizables */
-.btn{
-  display:inline-block; padding:12px 16px; border-radius:6px;
-  background:#111; color:#fff; text-decoration:none; border:1px solid #0d0d0d;
-  font-weight:700; letter-spacing:.2px; cursor:pointer;
-}
-.btn:hover{ filter:brightness(1.05); }
-.btn--whatsapp{ background:#25D366; border-color:#1fb457; color:#0a2614; margin-bottom:3vw; }
-
-/* Form */
-.form{
-  background:var(--card); color:var(--ink);
-  border-radius:10px; padding:18px;
-  box-shadow:0 12px 26px rgba(0,0,0,.14);
-}
-.form__title{ margin:0 0 12px; font-size:18px; font-weight:900; }
-.form__grid{ display:grid; gap:12px; grid-template-columns:1fr; }
-.field{ display:flex; flex-direction:column; gap:6px; }
-.field label{ font-size:13px; font-weight:700; color:#222; }
-.field input,.field select,.field textarea{
-  width:100%; padding:10px 12px; border-radius:8px;
-  border:1px solid var(--line); background:#fff; color:#111; font-size:14px; outline:none;
-}
-.field input:focus,.field select:focus,.field textarea:focus{
-  border-color:#bdbdbd; box-shadow:0 0 0 3px rgba(0,0,0,.06);
-}
-.field--full{ grid-column:1 / -1; }
-.field--check{ display:flex; align-items:center; }
-.check{ display:flex; align-items:center; gap:10px; font-size:13px; }
-.check input{ width:16px; height:16px; accent-color:#111; }
-.form__actions{ margin-top:8px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-.form__small{ margin:0; font-size:12px; color:#555; }
-
-/* ===== Suscripciones (Mercado Pago) ===== */
-.subs__head{ margin-bottom:8px; }
-.subs__subtitle{ margin:6px 0 0 0; font-size:15px; max-width:880px; }
-
-.subs__grid{
-  display:grid;
-  grid-template-columns: 1fr;   /* mobile */
-  gap: 28px;
-  align-items:start;
+/* ===================== B2B / SUSCRIPCIONES ===================== */
+.b2b .wrap {
+  padding-top: 34px;
+  padding-bottom: 38px;
 }
 
-/* Planes */
-.subs__plans{ display:grid; grid-template-columns:1fr; gap:18px; }
-.plan{
-  background:#fff; color:#1b1b1b; border-radius:12px; padding:20px;
-  box-shadow:0 10px 22px rgba(0,0,0,.12); border:1px solid #f1f1f1; position:relative;
-  display:flex; flex-direction:column;
+/* ======= TIPOGRAFÍA Y ENCABEZADO ======= */
+.subs__head .title-stamp {
+  font-size: 55px;
+  margin-bottom: 10px;
+  text-align: center;
 }
-.plan--highlight{ outline:2px solid #ffb057; }
-.plan__badge{
-  position:absolute; top:12px; right:12px; background:#ffb057; color:#1b1b1b;
-  font-weight:800; font-size:11px; padding:4px 8px; border-radius:999px;
-}
-.plan__title{ margin:0 0 6px 0; font-size:20px; font-weight:900; letter-spacing:.2px; }
-.plan__desc{ margin:0 0 10px 0; font-size:14px; color:#333; }
-.plan__price{ display:flex; align-items:baseline; gap:8px; margin:2px 0 8px; }
-.plan__amount{ font-size:22px; letter-spacing:.2px; }
-.plan__period{ font-size:12px; color:#666; }
-.plan__features{ margin:10px 0 12px; padding-left:18px; font-size:14px; }
-.plan__features li{ margin:4px 0; }
-.plan__note{ display:block; margin-top:8px; color:#666; font-size:12px; }
-.plan .btn{ margin-top:auto; }
-
-/* Botón Mercado Pago */
-.btn--mp{ background:#009ee3; border-color:#009ee3; color:#fff; }
-
-/* Aside */
-.subs__aside{ display:grid; grid-template-columns:1fr; gap:18px; }
-.card{
-  background:#fff; color:#1b1b1b; border-radius:12px; padding:18px;
-  border:1px solid #f1f1f1; box-shadow:0 10px 22px rgba(0,0,0,.10);
-}
-.card--cta{ background:#0f0f0f; color:#fff; border-color:#232323; box-shadow:none; }
-.card__title{ margin:0 0 8px 0; font-size:16px; font-weight:900; }
-.steps{ margin:0; padding-left:18px; font-size:14px; }
-.steps li{ margin:5px 0; }
-.bullets{ margin:0; padding-left:18px; font-size:14px; }
-.bullets li{ margin:5px 0; }
-.muted{ opacity:.75; }
-.subs__head .title-stamp{ margin-bottom:4px; }
-.subs__subtitle{ font-size:16px; line-height:1.4; }
-
-/* Desktop grids */
-@media (min-width:900px){
-  .b2b__grid{ grid-template-columns:1.05fr 0.95fr; align-items:start; gap:28px; }
-  .form{ padding:20px; }
-  .form__grid{ grid-template-columns:1fr 1fr; }
-
-  .subs__grid{ grid-template-columns: 1.35fr .95fr; gap:32px; }
+.subs__subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 880px;
+  margin: 10px auto;
+  text-align: center;
 }
 
-/* ===================== MODAL DE PLANES ===================== */
-.subsModal{
-  position: fixed;
-  inset: 0;
-  display: none;                 /* hidden por defecto */
-  z-index: 1000;
+/* ======= BOTONES ======= */
+.btn {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #0d0d0d;
+  font-weight: 700;
+  letter-spacing: .2px;
+  cursor: pointer;
+  text-align: center;
 }
-.subsModal.is-open{ display: block; }
-.subsModal__backdrop{
-  position:absolute; inset:0;
-  background: rgba(0,0,0,.6);
-  backdrop-filter: blur(2px);
-}
-.subsModal__panel{
-  position: relative;
-  margin: 4vh auto;
-  max-width: 1100px;
-  background: #fff;
-  color: #1b1b1b;
-  border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.35);
-  padding: 16px;
-}
-.subsModal__head{
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 6px 4px 10px;
-  border-bottom: 1px solid #eee;
-}
-.subsModal__head h3{
-  margin:0; font: 900 20px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-}
-.subsModal__close{
-  width: 36px; height: 36px;
-  border-radius: 999px;
-  border: 1px solid #e8e8e8;
-  background:#fff; cursor:pointer;
-}
-.subsModal__close:hover{ background:#f6f6f6; }
-.subsModal__grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  padding-top: 14px;
-}
-@media (min-width: 680px){
-  .subsModal__grid{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1000px){
-  .subsModal__grid{ grid-template-columns: repeat(3, 1fr); }
+.btn:hover { filter: brightness(1.05); }
+
+.btn--whatsapp {
+  background: #25D366;
+  border-color: #1fb457;
+  color: #0a2614;
+  margin-bottom: 3vw;
 }
 
-/* Las tarjetas dentro del modal ocupan el alto cómodo y empujan el botón abajo */
-.subsModal .plan{
-  height: 100%;
-  display:flex; flex-direction:column;
-  border-radius: 12px;
+#openPlans.btn {
+  background: #000;
+  border: 1px solid #000;
+  color: #fff;
+  font-size: 16px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  display: block;
+  margin: 20px auto;
 }
-.subsModal .plan .btn{ margin-top:auto; }
-
-/* ===================== GRID “ONLY ASIDE” ===================== */
-.only-aside{ grid-template-columns: 1fr; }
-
-/* ===================== CARRUSEL DE MARCAS (FOTOS REALES) ===================== */
-.brands{ margin-top: 24px; }
-.brands__title{
-  font-weight:900; text-transform:uppercase; letter-spacing:.6px;
-  font-size:14px; color:#2a1200; margin:0 0 10px 0;
-}
-.brands__rail{
-  position: relative;
-  background: rgba(0,0,0,.06);
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 12px;
-  padding: 12px 50px;            /* espacio para flechas */
+#openPlans.btn:hover {
+  filter: brightness(1.1);
 }
 
-/* Viewport con scroll horizontal suave */
-.brands__viewport{
-  display: grid;
-  grid-auto-flow: column;
-  /* tarjetas un poco más grandes que un logo, pero compactas */
-  grid-auto-columns: clamp(220px, 28vw, 320px);
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  padding-block: 2px;
-}
-
-/* Tarjeta de cada negocio (scopeda para no chocar con .brand del header) */
-.brands .brand{
-  position: relative;
-  height: clamp(140px, 22vw, 180px); /* altura contenida y consistente */
-  background:#fff;
-  border:1px solid #f1f1f1;
-  border-radius:14px;
-  overflow: hidden;                 /* recorta la foto */
-  box-shadow: 0 10px 22px rgba(0,0,0,.10);
-  scroll-snap-align: start;
-  display: flex;
-}
-
-/* Foto ocupa toda la tarjeta */
-.brands .brand img{
-  width:100%;
-  height:100%;
-  object-fit: cover;                 /* recorte agradable tipo “foto real” */
-  transform: scale(1.02);
-  transition: transform .25s ease, filter .25s ease;
-  filter: saturate(0.95) contrast(1.02);
-}
-
-/* Sutil hover para dar vida */
-.brands .brand:hover img{
-  transform: scale(1.06);
-  filter: none;
-}
-
-/* Botones del carrusel */
-.brands__btn{
-  position:absolute; top:50%; transform: translateY(-50%);
-  width: 36px; height: 36px; border-radius:999px;
-  border:1px solid rgba(0,0,0,.18); background:#fff9; backdrop-filter: blur(2px);
-  cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-}
-.brands__btn--prev{ left: 8px; }
-.brands__btn--next{ right: 8px; }
-.brands__btn:hover{ background:#fff; }
-
-/* Ícono flecha simple (si usás SVG inline) */
-.brands__btn svg{ width:18px; height:18px; }
-
-/* ===================== ASIDE (CÓMO FUNCIONA + BENEFICIOS + CTA) ===================== */
-
-/* Base general */
+/* ======= TARJETAS (ASIDE) ======= */
 .subs__aside {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
 }
-
-/* En pantallas grandes: tres columnas */
 @media (min-width: 900px) {
   .subs__aside {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* las tres juntas en fila */
     gap: 24px;
-    align-items: stretch;
-  }
-
-  /* Cada card ocupa su propia columna */
-  .subs__aside .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 }
 
-/* Estética refinada */
-.card {
-  background: #fff;
-  color: #1b1b1b;
-  border-radius: 12px;
-  padding: 18px;
-  border: 1px solid #f1f1f1;
-  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 26px rgba(0,0,0,0.15);
-}
-
-/* La tarjeta negra final (CTA) */
-.card--cta {
+.subs__aside .card {
   background: #0f0f0f;
   color: #fff;
-  border-color: #232323;
+  border: 1px solid #222;
   box-shadow: none;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;              /* contenido centrado */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;         /* centra verticalmente */
+}
+.subs__aside .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.4);
+}
+
+.subs__aside .card__title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+/* listas dentro de tarjetas */
+.subs__aside .steps,
+.subs__aside .bullets {
+  font-size: 15px;
+  line-height: 1.5;
+  padding-left: 0;
+  list-style-position: inside;
+  text-align: center;
+}
+.subs__aside .steps li,
+.subs__aside .bullets li {
+  margin: 6px 0;
+}
+
+/* Card CTA especial */
+.card--cta {
+  background: #0f0f0f;
+  border: 1px solid #222;
+  color: #fff;
   text-align: center;
 }
 .card--cta a.btn {
@@ -294,14 +127,169 @@
 }
 .card--cta a.btn:hover {
   transform: scale(1.04);
-  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.5);
 }
-
-/* Ícono WhatsApp dentro de la card */
 .card--cta .ico svg {
   width: 28px;
   height: 28px;
-  display: inline-block;
-  vertical-align: middle;
   margin-bottom: 8px;
 }
+
+/* ======= CARRUSEL DE MARCAS ======= */
+.brands {
+  margin-top: 24px;
+  margin-bottom: 28px;  /* aire debajo */
+}
+.brands__title {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  font-size: 14px;
+  color: #2a1200;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.brands__rail {
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 50px;
+}
+.brands__viewport {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(220px, 28vw, 320px);
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;       /* Firefox */
+}
+.brands__viewport::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.brands .brand {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 14px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  display: flex;
+}
+.brands .brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform .25s ease, filter .25s ease;
+}
+.brands .brand:hover img {
+  transform: scale(1.06);
+  filter: none;
+}
+
+/* Flechas del carrusel */
+.brands__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.18);
+  background: #fff9;
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brands__btn--prev { left: 8px; }
+.brands__btn--next { right: 8px; }
+.brands__btn:hover { background: #fff; }
+
+/* ===================== MODAL DE PLANES (ROBUSTO) ===================== */
+.subsModal{
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  /* oculto por defecto (anti-override) */
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  /* display:block evita que otra hoja lo resetee a block sin querer si usabas none */
+  display: block;
+  transition: opacity .18s ease, visibility .18s ease;
+}
+.subsModal.is-open{
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Fondo */
+.subsModal__backdrop{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(2px);
+}
+
+/* Panel */
+.subsModal__panel{
+  position: relative;
+  margin: 4vh auto;
+  max-width: 1100px;
+  background: #fff;
+  color: #1b1b1b;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  padding: 16px;
+
+  /* animación de aparición */
+  transform: translateY(6px) scale(.995);
+  transition: transform .18s ease;
+}
+.subsModal.is-open .subsModal__panel{
+  transform: translateY(0) scale(1);
+}
+
+.subsModal__head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 6px 4px 10px;
+  border-bottom: 1px solid #eee;
+}
+.subsModal__head h3{
+  margin:0; font: 900 20px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+.subsModal__close{
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  border: 1px solid #e8e8e8;
+  background:#fff; cursor:pointer;
+}
+.subsModal__close:hover{ background:#f6f6f6; }
+
+.subsModal__grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  padding-top: 14px;
+}
+@media (min-width: 680px){
+  .subsModal__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px){
+  .subsModal__grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Tarjetas dentro del modal */
+.subsModal .plan{
+  height: 100%;
+  display:flex; flex-direction:column;
+  border-radius: 12px;
+}
+.subsModal .plan .btn{ margin-top:auto; }
+
+/* Bloquea el scroll del body cuando el modal está abierto */
+body.modal-open{ overflow:hidden; }

@@ -2,7 +2,7 @@
 <section class="section section--orange b2b" id="contacto">
   <div class="wrap">
     <header class="subs__head">
-      <h2 class="title-stamp"><span>VENTA</span> MAYORISTA · SUSCRIPCIONES</h2>
+      <h2 class="title-stamp">VENTA MAYORISTA · SUSCRIPCIONES</h2>
       <p class="subs__subtitle">
         Elegí cuántos <strong>maples por semana</strong> querés recibir. El cobro es
         <strong>automático 1 vez por mes</strong> vía Mercado Pago. Cancelás cuando quieras.

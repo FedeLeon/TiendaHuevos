@@ -169,6 +169,7 @@
 .carousel--sizes .carousel__btn,
 .carousel--packs .carousel__btn {
   background: #fff9;
+  border: 1px solid rgba(0,0,0,.15);
 }
 .carousel--sizes .carousel__btn:hover,
 .carousel--packs .carousel__btn:hover {
@@ -278,14 +279,101 @@
   color: #1a1a1a;
 }
 
-/* ===================== CORRECCIÓN DE BORDES NEGROS ===================== */
-.eggslide,
-.presentcard {
-  border: none !important;   /* elimina borde fantasma */
-  box-shadow: none;          /* elimina sombras innecesarias */
+/* ===================== HUEVOS / CARRUSELES ===================== */
+
+/* Viewport sin scrollbar visible */
+.carousel__viewport {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  /* Ocultamos barra de scroll */
+  overflow-x: hidden;
+  scrollbar-width: none;         /* Firefox */
 }
-.eggslide__bg,
+.carousel__viewport::-webkit-scrollbar {
+  display: none;                 /* Chrome/Safari */
+}
+
+/* Botones prev/next siguen funcionando */
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.18);
+  background: #fff8;
+  backdrop-filter: blur(4px);
+  color: #1b1b1b;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+}
+.carousel__btn:hover { background:#fff; }
+.carousel__btn--prev { left: 8px; }
+.carousel__btn--next { right: 8px; }
+
+/* Slides de tamaños */
+.eggslide {
+  position: relative;
+  scroll-snap-align: start;
+  width: 100%;
+  height: calc(var(--car-h) - 10px);
+  border-radius: 16px;
+  overflow: hidden;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 24px;  /* más espacio entre carruseles */
+}
+.eggslide__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* ajusta exacto al alto */
+  border-radius: 16px;
+  z-index: 1;
+}
+.eggslide__egg {
+  position: absolute;
+  left: 6%;
+  bottom: 0;
+  height: 85%;
+  object-fit: contain;
+  z-index: 2;
+  animation: eggFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+@keyframes eggFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.03); }
+}
+
+/* Slides de presentaciones */
+.presentcard {
+  position: relative;
+  scroll-snap-align: start;
+  width: 100%;
+  height: calc(var(--car-h) - 10px);
+  border-radius: 16px;
+  overflow: hidden;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 24px; /* mismo margen abajo */
+}
 .presentcard__bg {
-  border: none !important;   /* asegura que la imagen no tenga borde */
-  outline: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* ajusta al alto */
+  border-radius: 16px;
 }

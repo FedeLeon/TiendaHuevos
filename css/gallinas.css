@@ -1,23 +1,77 @@
 /* ===================== GALLINAS ===================== */
-.gallinas .title-stamp{ font-size:70px; letter-spacing:1.2px; margin-bottom:8px; }
-.gallinas .lead{ font-size:20px; color:#dcdcdc; margin:0 0 16px 0; }
-.collage{ position:relative; height:180px; margin-bottom:10px; }
-.ph{
-  position:absolute; width:44%; aspect-ratio:3/4; object-fit:cover; background:#2b2b2b;
-  box-shadow:0 8px 18px rgba(0,0,0,.45); border:6px solid #111;
+.gallinas .title-stamp{ 
+  font-size:70px; 
+  letter-spacing:1.2px; 
+  margin-bottom:12px; 
+  text-align:center; 
 }
-.ph--a{ left:4%;  top:10px; transform:rotate(-8deg); }
-.ph--b{ left:28%; top:22px; transform:rotate(6deg); z-index:2; }
-.ph--c{ left:52%; top:44px; transform:rotate(-4deg); }
+.gallinas .lead{ 
+  font-size:20px; 
+  color:#dcdcdc; 
+  margin:0 auto; 
+  max-width:520px; 
+  text-align:center; 
+}
+
+/* GRID principal */
+.gallinas__grid{
+  display:grid;
+  grid-template-columns:1fr; 
+  gap:24px;
+  align-items:center;
+}
+@media (min-width:900px){
+  .gallinas__grid{
+    grid-template-columns:1fr 1fr; /* fotos izq / texto der */
+  }
+}
+
+/* Collage compacto: fotos superpuestas */
+.collage{ 
+  position:relative;
+  height:340px;   /* aumentamos la altura total */
+}
+
+.ph{
+  position:absolute;
+  width:45%;
+  aspect-ratio:3/4; 
+  object-fit:cover; 
+  background:#2b2b2b;
+  border:6px solid #111;
+}
+
+/* Dos arriba, medio montadas */
+.ph--a{ 
+  top:-20px; 
+  left:10%; 
+  transform:rotate(-6deg); 
+  z-index:1; 
+}
+.ph--b{ 
+  top:-20px; 
+  right:10%; 
+  transform:rotate(6deg); 
+  z-index:2; 
+}
+
+/* Una abajo centrada (más separada) */
+.ph--c{ 
+  top:160px;          /* antes estaba bottom:10px → la subimos a posición absoluta controlada */
+  left:50%; 
+  transform:translateX(-50%) rotate(-4deg); 
+  z-index:3; 
+}
 
 /* Responsive */
 @media (min-width:640px){
-  .collage{ height:240px; }
-  .ph{ width:38%; }
+  .collage{ height:380px; }
+  .ph{ width:50%; }
 }
 @media (min-width:900px){
-  .collage{ height:320px; }
+  .collage{ height:420px; }
 }
 @media (min-width:1200px){
-  .collage{ height:360px; }
+  .collage{ height:440px; }
+  .ph{ width:40%; }
 }

@@ -1,5 +1,5 @@
 /* ===================== B2C / COMPRA DIRECTA ===================== */
-.cta__text{ font-size:14px; text-transform:none; letter-spacing:.4px; opacity:.92; margin-bottom:2vw; }
+.cta__text{ font-size:20px; text-transform:none; letter-spacing:.4px; opacity:.92; margin-bottom:2vw; }
 
 /* Reordenado sin tocar tu HTML: el contenedor es el primer DIV después del H2 */
 .cta .wrap > h2 + div{
@@ -40,7 +40,7 @@
 .cta__pedido-title {
   margin: 0 0 14px;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 30px;
   letter-spacing: 0.6px;
   text-transform: uppercase;
   color: #fff;

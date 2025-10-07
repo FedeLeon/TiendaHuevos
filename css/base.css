@@ -1,73 +1,81 @@
 /* ============ FUENTE DISPLAY: 28 Days Later ============ */
 @font-face{
-    font-family: 'TwentyEightDaysLater';
-    src:
-      local('28 Days Later'),
-      url('/assets/fonts/28DaysLater.woff2') format('woff2'),
-      url('/assets/fonts/28DaysLater.woff') format('woff'),
-      url('/assets/fonts/28 Days Later.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* ================== PALETA Y BASE ================== */
-  :root{
-    --orange:#ff8a00;
-    --black:#0a0a0a;
-    --white:#ffffff;
-    --muted:rgba(255,255,255,.86);
-    --ink:#1b1b1b;
-    --card:#ffffff;
-    --line:#e8e8e8;
-  }
-  
-  *{ box-sizing:border-box; }
-  html,body{ height:100%; }
-  body{
-    margin:0;
-    color:var(--white);
-    background:#1b1b1b; /* margen exterior */
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans";
-    line-height:1.45;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-  }
-  
-  /* Títulos usan la display */
-  h1,h2{
-    font-family:'TwentyEightDaysLater', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
-    font-weight:400;
-  }
-  
-  /* Contenedores genéricos */
-  .page{ width:100%; background:var(--black); }
-  .container{ max-width:1320px; margin:0 auto; padding:0 22px; }
-  .section{ position:relative; overflow:hidden; }
-  .section--black{ background:var(--black); color:var(--white); }
-  .section--orange{ background:var(--orange); color:var(--ink); }
-  .wrap{ padding:28px 18px; max-width:1200px; margin-inline:auto; }
-  .wrap--tight{ padding:22px 16px; }
-  .wrap--center{ padding:40px 18px; text-align:center; }
-  
-  /* Separadores curvos (SVG) */
-  .shape{ position:absolute; left:0; right:0; width:100%; }
-  .shape--bottom{ bottom:-1px; height:64px; }
-  .shape--bottom svg{ display:block; width:100%; height:100%; }
-  .section--black  .shape--bottom path{ fill:var(--orange); }
-  .section--orange .shape--bottom path{ fill:var(--black); }
-  .to-black  path{ fill:var(--black)!important; }
-  .to-orange path{ fill:var(--orange)!important; }
-  
-  /* Títulos “sello” */
-  .title-stamp{
-    letter-spacing:1.5px; text-transform:uppercase;
-    margin:2px 0 10px 0; font-size: 40px;
-  }
-  .title-stamp span{ display:block; }
-  .title-stamp.sm{ font-size:14px; color:#261300; opacity:.9; }
-  
-  /* Utilidades */
-  h1,h2,h3,p{ margin:0; }
-  img{ max-width:100%; height:auto; }
-  
+  font-family: 'TwentyEightDaysLater';
+  src:
+    local('28 Days Later'),
+    url('/assets/fonts/28 Days Later.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============ FUENTE SECUNDARIA: Bebas Neue ============ */
+@font-face{
+  font-family: 'Bebas Neue';
+  src:
+    local('Bebas Neue'),
+    url('/assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================== PALETA Y BASE ================== */
+:root{
+  --orange:#f7931e;
+  --black:#0a0a0a;
+  --white:#ffffff;
+  --muted:rgba(255,255,255,.86);
+  --ink:#1b1b1b;
+  --card:#ffffff;
+  --line:#e8e8e8;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  color:var(--white);
+  background:#1b1b1b; /* margen exterior */
+  font-family:'Bebas Neue', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Títulos usan la display */
+h1,h2{
+  font-family:'TwentyEightDaysLater', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  font-weight:400;
+}
+
+/* Contenedores genéricos */
+.page{ width:100%; background:var(--black); }
+.container{ max-width:1320px; margin:0 auto; padding:0 22px; }
+.section{ position:relative; overflow:hidden; }
+.section--black{ background:var(--black); color:var(--white); }
+.section--orange{ background:var(--orange); color:var(--ink); }
+.wrap{ padding:28px 18px; max-width:1200px; margin-inline:auto; }
+.wrap--tight{ padding:22px 16px; }
+.wrap--center{ padding:40px 18px; text-align:center; }
+
+/* Separadores curvos (SVG) */
+.shape{ position:absolute; left:0; right:0; width:100%; }
+.shape--bottom{ bottom:-1px; height:64px; }
+.shape--bottom svg{ display:block; width:100%; height:100%; }
+.section--black  .shape--bottom path{ fill:var(--orange); }
+.section--orange .shape--bottom path{ fill:var(--black); }
+.to-black  path{ fill:var(--black)!important; }
+.to-orange path{ fill:var(--orange)!important; }
+
+/* Títulos “sello” */
+.title-stamp{
+  letter-spacing:1.5px; text-transform:uppercase;
+  margin:2px 0 10px 0; font-size: 50px;
+}
+.title-stamp span{ display:block; }
+.title-stamp.sm{ font-size:14px; color:#261300; opacity:.9; }
+
+/* Utilidades */
+h1,h2,h3,p{ margin:0; }
+img{ max-width:100%; height:auto; }
