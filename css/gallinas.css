@@ -1,77 +1,137 @@
 /* ===================== GALLINAS ===================== */
-.gallinas .title-stamp{ 
-  font-size:70px; 
-  letter-spacing:1.2px; 
-  margin-bottom:12px; 
-  text-align:center; 
-}
-.gallinas .lead{ 
-  font-size:20px; 
-  color:#dcdcdc; 
-  margin:0 auto; 
-  max-width:520px; 
-  text-align:center; 
+
+/* Texto + estilos existentes */
+.gallinas .title-stamp {
+  font-size: 70px;
+  letter-spacing: 1.2px;
+  margin-bottom: 12px;
+  text-align: center;
 }
 
-/* GRID principal */
-.gallinas__grid{
-  display:grid;
-  grid-template-columns:1fr; 
-  gap:24px;
-  align-items:center;
+.gallinas .lead {
+  font-size: 20px;
+  color: #dcdcdc;
+  margin: 0 auto;
+  max-width: 520px;
+  text-align: center;
+  margin: 50px;
 }
-@media (min-width:900px){
-  .gallinas__grid{
-    grid-template-columns:1fr 1fr; /* fotos izq / texto der */
+
+/* --- GRID base (mobile-first): title -> collage -> copy --- */
+.gallinas__grid {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "title"
+    "collage"
+    "copy";
+}
+
+/* “Aplano” el wrapper de texto para que h2 y p se conviertan en hijos de la grilla */
+.gallinas__text {
+  display: contents;
+}
+
+/* Asigno áreas */
+.gallinas__text .title-stamp {
+  grid-area: title;
+}
+
+.collage {
+  grid-area: collage;
+}
+
+.gallinas__text .lead {
+  grid-area: copy;
+}
+
+/* Collage compacto */
+.collage {
+  position: relative;
+  height: 340px;
+}
+
+.ph {
+  position: absolute;
+  width: 45%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  background: #2b2b2b;
+  border: 6px solid #111;
+}
+
+.ph--a {
+  top: -20px;
+  left: 10%;
+  transform: rotate(-6deg);
+  z-index: 1;
+}
+
+.ph--b {
+  top: -20px;
+  right: 10%;
+  transform: rotate(6deg);
+  z-index: 2;
+}
+
+.ph--c {
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  z-index: 3;
+}
+
+/* Ajustes responsive suaves */
+@media (min-width:640px) {
+  .collage {
+    height: 380px;
+  }
+
+  .ph {
+    width: 50%;
   }
 }
 
-/* Collage compacto: fotos superpuestas */
-.collage{ 
-  position:relative;
-  height:340px;   /* aumentamos la altura total */
+/* --- Desktop: dos columnas, fotos a la izquierda / textos a la derecha --- */
+@media (min-width:900px) {
+  .gallinas__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "collage copy";
+    align-items: center;
+  }
+
+  /* volvemos a un contenedor normal */
+  .gallinas__text {
+    display: block;
+  }
+
+  /* Título y copy ya van dentro de la misma columna (derecha) */
+  .gallinas .title-stamp {
+    text-align: left;
+    margin: 0 0 12px;
+  }
+
+  .gallinas .lead {
+    text-align: left;
+    margin: 0;
+    max-width: 600px;
+    font-size: 25px;
+  }
+
+  .collage {
+    height: 420px;
+  }
 }
 
-.ph{
-  position:absolute;
-  width:45%;
-  aspect-ratio:3/4; 
-  object-fit:cover; 
-  background:#2b2b2b;
-  border:6px solid #111;
-}
+/* Desktop grande */
+@media (min-width:1200px) {
+  .collage {
+    height: 440px;
+  }
 
-/* Dos arriba, medio montadas */
-.ph--a{ 
-  top:-20px; 
-  left:10%; 
-  transform:rotate(-6deg); 
-  z-index:1; 
-}
-.ph--b{ 
-  top:-20px; 
-  right:10%; 
-  transform:rotate(6deg); 
-  z-index:2; 
-}
-
-/* Una abajo centrada (más separada) */
-.ph--c{ 
-  top:160px;          /* antes estaba bottom:10px → la subimos a posición absoluta controlada */
-  left:50%; 
-  transform:translateX(-50%) rotate(-4deg); 
-  z-index:3; 
-}
-
-/* Responsive */
-@media (min-width:640px){
-  .collage{ height:380px; }
-  .ph{ width:50%; }
-}
-@media (min-width:900px){
-  .collage{ height:420px; }
-}
-@media (min-width:1200px){
-  .collage{ height:440px; }
-  .ph{ width:40%; }
+  .ph {
+    width: 40%;
+  }
 }
