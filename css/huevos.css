@@ -1,68 +1,83 @@
-/* ===================== HUEVOS / PRESENTACIONES — LAYOUT SIMÉTRICO ===================== */
+/* ==========================================================================
+   HUEVOS / PRESENTACIONES — LAYOUT SIMÉTRICO (ordenado)
+   ========================================================================== */
 
-/* Alturas de los carrousels por breakpoint */
+/* ---------- Alturas de carruseles por breakpoint ---------- */
 :root{
-  --car-h: 230px;   /* mobile */
+  --car-h: 230px;                /* mobile */
 }
 @media (min-width: 640px){
-  :root{ --car-h: 280px; }  /* tablet */
+  :root{ --car-h: 280px; }       /* tablet */
 }
 @media (min-width: 900px){
-  :root{ --car-h: 360px; }  /* desktop base */
+  :root{ --car-h: 360px; }       /* desktop base */
 }
 @media (min-width: 1200px){
-  :root{ --car-h: 420px; }  /* desktop grande */
+  :root{ --car-h: 420px; }       /* desktop grande */
 }
 
-/* Encabezado del bloque */
-.huevos .wrap{ padding-top:28px; padding-bottom:30px; }
+/* ---------- Encabezado del bloque ---------- */
+.huevos .wrap{ padding-top: 28px; padding-bottom: 30px; }
 .huevos__head{
-  display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;
   margin-bottom: 10px;
 }
 
-/* GRID 2 columnas */
+/* ---------- Grilla 1→2 columnas ---------- */
 .huevos__grid{
-  display:grid;
-  grid-template-columns: 1fr;      /* mobile */
+  display: grid;
+  grid-template-columns: 1fr;            /* mobile */
   gap: 24px;
   margin-top: 8px;
   align-items: stretch;
 }
 @media (min-width: 900px){
-  .huevos__grid{
-    grid-template-columns: 1fr 1fr; /* 2 columnas simétricas */
-  }
+  .huevos__grid{ grid-template-columns: 1fr 1fr; }  /* 2 columnas simétricas */
 }
 
-/* Columnas */
+/* ---------- Columnas ---------- */
 .huevos__col{
-  display:flex;
+  display: flex;
   flex-direction: column;
   min-width: 0;
 }
+.huevos__col .carousel{ margin-bottom: 28px; }      /* ritmo vertical */
+
+/* ---------- Títulos de bloque y subtítulos de columna ---------- */
+.huevos h2{
+  font-size: clamp(40px, 5vw, 64px);
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  letter-spacing: 2px;
+  color: #000;
+}
 .huevos__coltitle{
-  margin: 0 0 10px 0;
+  text-align: center;
   font-weight: 900;
   letter-spacing: .6px;
   text-transform: uppercase;
-  font-size: 20px;
-  color: #2a1200;
-  opacity:.9;
+  font-size: 28px;
+  margin: 0 0 14px 0;
+  color: #1a1a1a;
+  opacity: .9;
 }
 
-/* ====== CAROUSEL BASE ====== */
+/* ==========================================================================
+   CAROUSEL BASE (ambas columnas)
+   ========================================================================== */
 .carousel{
   position: relative;
-  overflow: hidden;             /* recorta overflow */
+  overflow: hidden;                        /* recorta overflow */
   height: var(--car-h);
   border-radius: 16px;
   background: none;
   border: none;
   padding: 0;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
+
+/* Viewport sin barra visible (scroll por botones o gesto) */
 .carousel__viewport{
   flex: 1 1 auto;
   min-height: 0;
@@ -70,243 +85,22 @@
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   gap: 0;
-  overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  padding: 0;
+
+  overflow-x: hidden;            /* oculta la barra pero mantiene el scroll */
+  scrollbar-width: none;         /* Firefox */
 }
-.carousel__viewport::-webkit-scrollbar{ height: 10px; }
-.carousel__viewport::-webkit-scrollbar-thumb{
-  background: rgba(0,0,0,.15);
-  border-radius: 999px;
-}
+.carousel__viewport::-webkit-scrollbar{ display: none; } /* Chrome/Safari */
 
 /* Botones prev/next */
 .carousel__btn{
-  position:absolute;
-  top:50%;
-  transform: translateY(-50%);
-  width: 38px; height: 38px;
-  display:flex; align-items:center; justify-content:center;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.18);
-  background: #fff9;
-  backdrop-filter: blur(4px);
-  color:#1b1b1b;
-  cursor:pointer;
-  z-index: 2;
-  user-select: none;
-}
-.carousel__btn:hover{ background:#fff; }
-.carousel__btn--prev{ left: 8px; }
-.carousel__btn--next{ right: 8px; }
-
-/* ===================== SLIDES TAMAÑOS ===================== */
-.eggslide {
-  position: relative;
-  scroll-snap-align: start;
-  width: 100%;
-  height: calc(var(--car-h) - 10px);
-  border-radius: 16px;
-  overflow: hidden;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-.eggslide__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  z-index: 1;
-  pointer-events: none;
-}
-.eggslide__egg {
-  position: absolute;
-  left: 6%;
-  bottom: 0;
-  height: 85%;
-  width: auto;
-  object-fit: contain;
-  z-index: 2;
-  animation: eggFloat 4s ease-in-out infinite;
-  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
-  pointer-events: none;
-  transform-origin: center bottom;
-}
-/* Animación flotante */
-@keyframes eggFloat {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) rotate(-2deg) scale(1.03); }
-}
-
-/* ===================== SLIDES PRESENTACIONES ===================== */
-.presentcard {
-  position: relative;
-  scroll-snap-align: start;
-  width: 100%;
-  height: calc(var(--car-h) - 10px);
-  border-radius: 16px;
-  overflow: hidden;
-  background: none;
-  border: none;
-  box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.presentcard__bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-/* ===================== BOTONES EN CARRUSELES ===================== */
-.carousel--sizes .carousel__btn,
-.carousel--packs .carousel__btn {
-  background: #fff9;
-  border: 1px solid rgba(0,0,0,.15);
-}
-.carousel--sizes .carousel__btn:hover,
-.carousel--packs .carousel__btn:hover {
-  background: #fff;
-}
-
-/* ===================== RESPONSIVE HUEVITOS ===================== */
-@media (max-width: 700px) {
-  .eggslide__egg {
-    left: 4%;
-    height: 80%;
-  }
-}
-@media (min-width: 1200px) {
-  .eggslide__egg {
-    left: 10%;
-    height: 95%;
-  }
-}
-
-/* ===================== SLIDES TAMAÑOS ===================== */
-.eggslide {
-  position: relative;
-  scroll-snap-align: start;
-  width: 100%;
-  height: calc(var(--car-h) - 10px);
-  border-radius: 16px;
-  overflow: hidden;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-.eggslide__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;        /* ahora se ajusta completo al alto de la tarjeta */
-  object-position: center;
-  border-radius: 16px;
-  z-index: 1;
-  pointer-events: none;
-}
-.eggslide__egg {
-  position: absolute;
-  left: 6%;
-  bottom: 0;
-  height: 85%;
-  width: auto;
-  object-fit: contain;
-  z-index: 2;
-  animation: eggFloat 4s ease-in-out infinite;
-  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
-  pointer-events: none;
-  transform-origin: center bottom;
-}
-/* Animación flotante */
-@keyframes eggFloat {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) rotate(-2deg) scale(1.03); }
-}
-
-/* ===================== SLIDES PRESENTACIONES ===================== */
-.presentcard {
-  position: relative;
-  scroll-snap-align: start;
-  width: 100%;
-  height: calc(var(--car-h) - 10px);
-  border-radius: 16px;
-  overflow: hidden;
-  background: none;
-  border: none;
-  box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.presentcard__bg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;        /* ajuste completo sin recorte */
-  object-position: center;
-  border-radius: 16px;
-}
-
-/* ===================== ESPACIADO DE LOS CARRUSELES ===================== */
-.huevos__col .carousel {
-  margin-bottom: 28px;        /* espacio debajo de cada carrusel */
-}
-
-/* ===================== TÍTULOS DE SECCIÓN ===================== */
-.huevos h2 {
-  font-size: clamp(40px, 5vw, 64px); /* más grande y responsivo */
-  text-transform: uppercase;
-  margin: 0 0 20px;
-  letter-spacing: 2px;
-  color: #000;
-}
-
-/* ===================== TÍTULOS ARRIBA DE CADA CARRUSEL ===================== */
-.huevos__coltitle {
-  text-align: center;   /* centrado */
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  font-size: 22px;
-  margin-bottom: 14px;
-  color: #1a1a1a;
-}
-
-/* ===================== HUEVOS / CARRUSELES ===================== */
-
-/* Viewport sin scrollbar visible */
-.carousel__viewport {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 100%;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  /* Ocultamos barra de scroll */
-  overflow-x: hidden;
-  scrollbar-width: none;         /* Firefox */
-}
-.carousel__viewport::-webkit-scrollbar {
-  display: none;                 /* Chrome/Safari */
-}
-
-/* Botones prev/next siguen funcionando */
-.carousel__btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,.18);
   background: #fff8;
@@ -316,12 +110,25 @@
   z-index: 2;
   user-select: none;
 }
-.carousel__btn:hover { background:#fff; }
-.carousel__btn--prev { left: 8px; }
-.carousel__btn--next { right: 8px; }
+.carousel__btn:hover{ background: #fff; }
+.carousel__btn--prev{ left: 8px; }
+.carousel__btn--next{ right: 8px; }
 
-/* Slides de tamaños */
-.eggslide {
+/* Apariencia de botones por tipo de carrusel (coinciden) */
+.carousel--sizes .carousel__btn,
+.carousel--packs .carousel__btn{
+  background: #fff9;
+  border: 1px solid rgba(0,0,0,.15);
+}
+.carousel--sizes .carousel__btn:hover,
+.carousel--packs .carousel__btn:hover{
+  background: #fff;
+}
+
+/* ==========================================================================
+   SLIDES — TAMAÑOS (huevitos)
+   ========================================================================== */
+.eggslide{
   position: relative;
   scroll-snap-align: start;
   width: 100%;
@@ -331,35 +138,53 @@
   background: none;
   border: none;
   box-shadow: none;
-  margin-bottom: 24px;  /* más espacio entre carruseles */
+  margin-bottom: 24px;                          /* mismo ritmo que presentaciones */
 }
-.eggslide__bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* ajusta exacto al alto */
+
+/* fondo de la card (ilustración o textura) */
+.eggslide__bg{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;                           /* ajuste completo sin recorte */
+  object-position: center;
   border-radius: 16px;
   z-index: 1;
+  pointer-events: none;
 }
-.eggslide__egg {
+
+/* huevo protagonista */
+.eggslide__egg{
   position: absolute;
   left: 6%;
   bottom: 0;
-  height: 85%;
+  height: 100%;                                  /* base actual efectiva */
+  width: auto;
   object-fit: contain;
   z-index: 2;
-  animation: eggFloat 4s ease-in-out infinite;
-  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,.25));
   pointer-events: none;
-}
-@keyframes eggFloat {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) scale(1.03); }
+  animation: eggFloat 4s ease-in-out infinite;
+  transform-origin: center bottom;
 }
 
-/* Slides de presentaciones */
-.presentcard {
+/* Flotación suave */
+@keyframes eggFloat{
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-10px) scale(1.03); }
+}
+
+/* Ajustes responsivos del huevo */
+@media (max-width: 700px){
+  .eggslide__egg{ left: 4%; height: 100%; }
+}
+@media (min-width: 1200px){
+  .eggslide__egg{ left: 10%; height: 100%; }
+}
+
+/* ==========================================================================
+   SLIDES — PRESENTACIONES (fotos de los packs)
+   ========================================================================== */
+.presentcard{
   position: relative;
   scroll-snap-align: start;
   width: 100%;
@@ -369,11 +194,12 @@
   background: none;
   border: none;
   box-shadow: none;
-  margin-bottom: 24px; /* mismo margen abajo */
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
 }
-.presentcard__bg {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* ajusta al alto */
+.presentcard__bg{
+  width: 100%; height: 100%;
+  object-fit: contain;                           /* sin recorte */
+  object-position: center;
   border-radius: 16px;
 }
