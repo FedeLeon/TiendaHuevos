@@ -1,73 +1,59 @@
 /* ================= NAVBAR ================= */
-
-.topbar {
+.topbar{
   background: var(--black);
   border-bottom: 1px solid #1f1f1f;
-  position: sticky;
-  top: 0;
+  position: sticky; top: 0;
   z-index: 100;
 }
+.topbar__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  height:72px; padding:0 16px; gap:16px;
+}
+.brand{ display:inline-block; background:none; border:none; padding:0; }
+.brand img{ height:46px; width:auto; display:block; }
 
-.topbar__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
-  padding: 0 20px;
+/* Nav desktop */
+.nav{ display:flex; align-items:center; gap:24px; }
+.nav a{
+  color:#d8d8d8; text-decoration:none; font-size:13px; letter-spacing:.5px; text-transform:uppercase;
 }
+.nav a:hover{ color:#fff; }
 
-/* LOGO */
-.brand {
-  display: inline-block;
-  background: none;
-  border: none;
-  padding: 0;
-}
-.brand img {
-  height: 70px; /* ajustá según tu logo */
-  width: auto;
-  display: block;
-}
+/* Redes (desktop) */
+.social{ display:flex; align-items:center; gap:14px; }
+.ico{ width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; }
+.social .ico{ font-size:0; line-height:0; } /* evita el “SVG…” fantasma */
+.social .ico svg{ display:block; width:100%; height:100%; }
 
-/* NAVEGACIÓN */
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 30px;
+/* Burger (mobile) */
+.topbar__burger{
+  display:none;
+  align-items:center; justify-content:center;
+  width:40px; height:40px; border-radius:10px;
+  border:1px solid #2a2a2a; background:#141414; color:#fff; cursor:pointer;
 }
-.nav a {
-  color: #d8d8d8;
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  transition: color .2s ease;
-}
-.nav a:hover {
-  color: #fff;
-}
+.topbar__burger svg{ width:22px; height:22px; }
 
-/* REDES SOCIALES */
-.social {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+/* ============== DRAWER ============== */
+.drawer{ position:fixed; inset:0; display:none; z-index:9999; }
+.drawer.is-open{ display:block; }
+.drawer__backdrop{ position:absolute; inset:0; background: rgba(0,0,0,.65); }
+.drawer__panel{
+  position:absolute; top:0; right:0; height:100%; width:min(78vw, 320px);
+  background:#101010; color:#fff; padding:18px; box-shadow: -18px 0 40px rgba(0,0,0,.45);
+  transform: translateX(100%); transition: transform .28s ease;
+  display:flex; flex-direction:column; gap:18px;
 }
-.ico {
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 0;
-  transition: transform .2s ease;
+.drawer.is-open .drawer__panel{ transform: translateX(0); }
+.drawer__nav{ display:flex; flex-direction:column; gap:14px; margin-top:8px; }
+.drawer__nav a{
+  color:#f4f4f4; text-decoration:none; font-size:18px; letter-spacing:.4px; text-transform:uppercase;
 }
-.ico svg {
-  width: 100%;
-  height: 100%;
-}
-.ico:hover {
-  transform: scale(1.1);
+.drawer__nav a:hover{ color:#fff; text-decoration:underline; }
+
+/* ======= BREAKPOINT Mobile ======= */
+@media (max-width: 899.98px){
+  .nav{ display:none; }         /* oculto menú desktop */
+  .social{ display:none; }      /* oculto redes */
+  .topbar__burger{ display:inline-flex; }  /* muestro burger */
 }
