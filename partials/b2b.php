@@ -39,7 +39,7 @@
 
         <div class="card card--cta">
           <p style="margin:0 0 8px;">¿Necesitás otro volumen?</p>
-          <a href="https://wa.me/549XXXXXXXXXX" class="ico" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <a href="https://wa.me/549XXXXXXXXXX" class="ico_b2b" aria-label="WhatsApp" target="_blank" rel="noopener">
             <svg width="24" height="24" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
               <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 
              0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 
