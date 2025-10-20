@@ -1,6 +1,5 @@
 /* ===================== HISTORIA ===================== */
 .historia .wrap {
-  padding-top: 60px;
   padding-bottom: 60px;
 }
 
@@ -18,7 +17,7 @@
   color: #000;
 }
 
-/* Grilla general */
+/* Grilla general (mobile: una sola columna) */
 .historia__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -26,7 +25,7 @@
   align-items: center;
 }
 
-/* Texto */
+/* Texto (párrafos) */
 .historia__text p {
   margin: 0 0 12px 0;
   font-size: 20px;
@@ -36,7 +35,7 @@
   padding: 14px 18px;
   border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  text-align: center;
+  text-align: center; /* mobile */
 }
 
 /* Contenedor del video */
@@ -78,17 +77,93 @@
   text-transform: uppercase;
 }
 
-/* ------------------- Responsive ------------------- */
-@media (min-width: 640px) {
-  .historia__grid {
-    grid-template-columns: 1.2fr 0.9fr;
-    gap: 36px;
+/* ================= MOBILE-ONLY ================= */
+@media (max-width: 640px) {
+  /* Título centrado y más chico */
+  .historia__title h2 {
+    text-align: center;
+    font-size: 50px;
+    line-height: 1.1;
+    margin-bottom: 24px;
   }
+
+  /* Acomodar texto + video (video entre los dos párrafos) */
+  .historia__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .historia__text p {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.55;
+    padding: 12px 14px;
+  }
+
   .historia__video {
-    height: 320px;
+    width: 100%;
+    height: 240px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .historia__envio {
+    margin-top: 6px;
+    font-weight: 600;
   }
 }
 
+/* ================= DESKTOP ================= */
+@media (min-width: 900px) {
+  /* El contenedor general puede quedar a 1 columna:
+     armamos la grilla de 2 columnas DENTRO de .historia__text */
+  .historia__text {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr;       /* izquierda texto / derecha media */
+    grid-template-areas:
+      "story media"
+      "story envio";
+    column-gap: 36px;
+    row-gap: 18px;
+    align-items: start;
+  }
+
+  /* Primer párrafo (historia) ocupa toda la columna izquierda y 2 filas */
+  .historia__text p:not(.historia__envio) {
+    grid-area: story;
+    text-align: left;
+    font-size: 25px;
+    line-height: 1.65;
+    padding: 16px 18px;
+    margin-top: 50px;
+  }
+
+  /* El contenedor del video ocupa la columna derecha, fila 1 */
+  .historia__pic {
+    grid-area: media;
+  }
+
+  /* El texto de envío queda debajo del video, columna derecha, fila 2 */
+  .historia__envio {
+    grid-area: envio;
+    text-align: center;
+    font-weight: 700;
+    margin: 0; /* ya tiene el padding de los recuadros */
+  }
+
+  .historia__video {
+    height: 360px; /* cómodo en desktop */
+  }
+
+  .historia__title h2 {
+    font-size: 86px; /* como tenías */
+    text-align: left;
+  }
+}
+
+/* Desktop amplio: un poco más de aire y video más grande */
 @media (min-width: 1200px) {
   .wrap {
     padding-left: 40px;
@@ -96,8 +171,5 @@
   }
   .historia__video {
     height: 420px;
-  }
-  .historia__title h2 {
-    font-size: 86px;
   }
 }
