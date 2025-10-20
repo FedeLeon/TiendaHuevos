@@ -1,10 +1,10 @@
 /* ================= NAVBAR ================= */
-.topbar{
+.topbar {
   background: var(--black);
   border-bottom: 1px solid #1f1f1f;
-  position: sticky; top: 0;
-  z-index: 100;
+  z-index: 10;
 }
+
 .topbar__inner{
   display:flex; align-items:center; justify-content:space-between;
   height:72px; padding:0 16px; gap:16px;
@@ -56,4 +56,11 @@
   .nav{ display:none; }         /* oculto menú desktop */
   .social{ display:none; }      /* oculto redes */
   .topbar__burger{ display:inline-flex; }  /* muestro burger */
+}
+
+/* === NAVBAR (ajuste de texto en desktop) === */
+.nav a{
+  font-size: 20px;
+  letter-spacing: .8px;
+  font-weight: 600;
 }

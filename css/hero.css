@@ -1,53 +1,142 @@
-/* ================= HERO ================= */
+/* ===================== HERO (mobile-first) ===================== */
+
+:root{
+  --topbar-h: 72px;
+  --hero-curve-h: 68px;
+}
+
 .hero{
   position: relative;
   background: var(--black);
-  overflow: visible;             /* importante para que el huevo “se salga” */
-  padding: 36px 0 0;
-  min-height: 62vh;
-  z-index: 1;                    /* debajo del huevo */
+  min-height: calc(50svh - var(--topbar-h));
+  padding: 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  z-index: 1;
 }
+
 .hero__grid{
-  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  justify-items: center;
+  gap: 8px;
+  flex: 1;
+  height: 100%;
+  padding: 0 10px;
 }
-.hero__copy{ align-self: start; padding: 8px 0 24px; }
+
+/* Columna izquierda (texto) */
+.hero__copy{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+}
+
 .hero__headline{
-  margin:0; color:#fff; line-height:1.1; letter-spacing:.2px;
-  font-size: clamp(28px, 5.2vw, 80px);      /* responsive */
-  font-family: 'TwentyEightDaysLater', system-ui, sans-serif;
-  max-width: 900px;
+  margin: 0;
+  color: #fff;
+  line-height: 0.95;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 5.2vh;
+  max-width: 13ch;
+  text-wrap: balance;
 }
 
-/* Huevo por arriba de todo (navbar incluido) */
-.hero__media{ position: relative; z-index: 9998; pointer-events:none; }
+/* Columna derecha (huevo) */
+.hero__media{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+}
+
 .hero__media img{
-  display:block; width: clamp(260px, 38vw, 620px); height:auto; object-fit:contain;
+  display: block;
+  /* Hacemos el huevo un poco más grande */
+  max-height: calc(110svh - var(--topbar-h) - var(--hero-curve-h));
+  width: auto;
+  height: auto;
+  object-fit: contain;
+
+  /* Movemos e inclinamos */
+  transform: translateY(-3vh) rotate(10deg);
+  transform-origin: center;
+  transition: transform .3s ease-in-out;
+
+  /* Efectos visuales */
   filter: drop-shadow(0 10px 30px rgba(0,0,0,.55));
-  position: relative; z-index: 10001;  /* > navbar */
+  pointer-events: none;
 }
 
-/* Desktop: huevo en absoluta para superponer */
+/* Curva inferior */
+.curve{
+  position:absolute; left:0; right:0; width:100%;
+  pointer-events: none;
+}
+.curve--bottom{
+  bottom: 0;
+  height: var(--hero-curve-h);
+}
+.curve--bottom svg{ display:block; width:100%; height:100%; }
+.curve--bottom path{ fill: var(--orange); }
+
+/* =============== Desktop =============== */
 @media (min-width: 900px){
-  .hero{ min-height: 70vh; padding-top: 36px; }
-  .hero__grid{ grid-template-columns: 1.1fr 0.9fr; align-items: end; min-height: 64vh; }
-  .hero__copy{ align-self:end; padding-bottom: 36px; }
-  .hero__media{
-    position:absolute;
-    bottom: clamp(-40px, -6vh, -80px);    /* ajustá según tu imagen */
-    right: clamp(6vw, 10vw, 14vw);
+  .hero{
+    min-height: calc(100svh - var(--topbar-h));
+    display: flex;
+    align-items: flex-end;
+    overflow: visible; /* permite que el huevo sobresalga */
   }
+
+  .hero__grid{
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: end;
+    padding: 0 40px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__copy{
+    align-self: end;
+    padding-bottom: 6vh;
+  }
+
+  .hero__headline{
+    font-size: clamp(58px, 5.8vw, 100px);
+    line-height: 1.05;
+    max-width: 16ch;
+  }
+
+  .hero__media{
+    position: relative;
+    overflow: visible;
+    z-index: 10;
+  }
+
+  .hero__media img{
+    position: relative;
+    z-index: 10001; /* encima del navbar */
+    transform: translateY(-10vh) rotate(8deg); /* lo sube y lo inclina */
+    transform-origin: center;
+    max-height: calc(100svh - var(--topbar-h) + 100px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 36px rgba(0,0,0,.6));
+  }
+
+  .curve--bottom{
+    position: relative;
+    z-index: 1;
+  }
+  
 }
 
-/* Mobile: 2 columnas (texto izquierda / huevo derecha) */
-@media (max-width: 899.98px){
-  .social{ display:none; }       /* ocultamos redes en mobile */
-  .nav{ display:none; }          /* usamos drawer */
-  .topbar__burger{ display:inline-flex; }   /* mostramos burger */
-
-  .hero__grid{ grid-template-columns: 1.05fr .95fr; align-items: center; }
-  .hero__media{ position: static; display:flex; justify-content:center; align-items:center; margin-top:8px; }
-  .hero__media img{ width: clamp(160px, 34vw, 240px); transform:none !important; }
-}

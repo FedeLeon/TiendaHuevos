@@ -5,7 +5,7 @@
     </div>
 
     <div class="hero__media" aria-hidden="true">
-      <img src="/img/hero-lampara.png" alt="" />
+      <img class="hero__media" src="/img/hero-lampara.png" alt="" />
     </div>
   </div>
 
