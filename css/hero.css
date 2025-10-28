@@ -1,5 +1,4 @@
 /* ===================== HERO (mobile-first) ===================== */
-
 :root{
   --topbar-h: 72px;
   --hero-curve-h: 68px;
@@ -7,7 +6,8 @@
 
 .hero{
   position: relative;
-  background: var(--black);
+  background: var(--peach);   /* antes: var(--black) */
+  color: var(--ink);          /* texto negro dentro de .page */
   min-height: calc(50svh - var(--topbar-h));
   padding: 0;
   overflow: visible;
@@ -39,7 +39,7 @@
 
 .hero__headline{
   margin: 0;
-  color: #fff;
+  color: var(--ink);          /* antes: #fff */
   line-height: 0.95;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -59,18 +59,15 @@
 
 .hero__media img{
   display: block;
-  /* Hacemos el huevo un poco más grande */
   max-height: calc(110svh - var(--topbar-h) - var(--hero-curve-h));
   width: auto;
   height: auto;
   object-fit: contain;
 
-  /* Movemos e inclinamos */
   transform: translateY(-3vh) rotate(10deg);
   transform-origin: center;
   transition: transform .3s ease-in-out;
 
-  /* Efectos visuales */
   filter: drop-shadow(0 10px 30px rgba(0,0,0,.55));
   pointer-events: none;
 }
@@ -85,6 +82,7 @@
   height: var(--hero-curve-h);
 }
 .curve--bottom svg{ display:block; width:100%; height:100%; }
+/* peach → orange (respeta alternancia) */
 .curve--bottom path{ fill: var(--orange); }
 
 /* =============== Desktop =============== */
@@ -113,6 +111,7 @@
     font-size: clamp(58px, 5.8vw, 100px);
     line-height: 1.05;
     max-width: 16ch;
+    color: var(--ink); /* asegura negro en desktop también */
   }
 
   .hero__media{
@@ -137,6 +136,4 @@
     position: relative;
     z-index: 1;
   }
-  
 }
-

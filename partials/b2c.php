@@ -2,11 +2,11 @@
   <div class="wrap">
     <h2 class="title-stamp" style="margin-bottom:12px;">COMPRA DIRECTA</h2>
 
-    <div style="display:grid; gap:18px; grid-template-columns:1fr; align-items:start;">
+    <div style="display:grid; gap:18px; grid-template-columns:1fr; align-items:start; margin-right:4%; margin-left:4%">
       <div style="background:#0f0f0f; border:1px solid #232323; border-radius:10px; padding:16px;">
         <p class="cta__text" style="text-transform:none; font-size:16px; opacity:.95; margin-bottom:10px;">
-          🐓🥚 <strong>Huevos colorados frescos</strong>, directos del campo. Pedí por WhatsApp y
-          <strong>te lo llevamos a domicilio</strong> en Trenque Lauquen o retirás en nuestros puntos de venta.
+          🐓<strong>Huevos colorados frescos</strong>, directos del campo. Pedí por WhatsApp y
+          <strong>te lo llevamos a domicilio</strong> en Trenque Lauquen o retirás en nuestros puntos de venta.🥚
         </p>
 
         <div style="display:grid; gap:10px; grid-template-columns:1fr; margin-top:10px;">

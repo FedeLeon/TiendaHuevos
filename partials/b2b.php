@@ -61,16 +61,21 @@
              -1.3-2.5-5-3.9-10.5-6.6z" fill="#fff" />
             </svg>
           </a>
-
           <a class="btn" href="https://wa.me/549XXXXXXXXXX" target="_blank" rel="noopener">Hablar con ventas</a>
           <small class="muted" style="display:block;margin-top:8px;">Armamos un plan a medida.</small>
         </div>
+
+        <p class="subs__legal">
+          * Los importes se cobran una vez al mes (equivalente a 4 semanas). Sujetos a zona y stock.
+          Cancelás en cualquier momento desde tu cuenta de Mercado Pago.
+        </p>
+
       </aside>
     </div>
 
     <!-- CARRUSEL DE MARCAS (logos) -->
     <div class="brands">
-      <h3 class="brands__title">Puntos adheridos</h3>
+      <h2 class="brands__title">Puntos adheridos</h2>
       <div class="brands__rail">
         <button class="brands__btn brands__btn--prev" type="button" aria-label="Anterior">‹</button>
         <div class="brands__viewport" id="brandsViewport">
@@ -85,11 +90,6 @@
         <button class="brands__btn brands__btn--next" type="button" aria-label="Siguiente">›</button>
       </div>
     </div>
-
-    <p class="subs__legal">
-      * Los importes se cobran una vez al mes (equivalente a 4 semanas). Sujetos a zona y stock.
-      Cancelás en cualquier momento desde tu cuenta de Mercado Pago.
-    </p>
   </div>
 
   <div class="shape shape--bottom to-black">

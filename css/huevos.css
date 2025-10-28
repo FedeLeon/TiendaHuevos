@@ -45,9 +45,9 @@
 
 /* ---------- Títulos de bloque y subtítulos de columna ---------- */
 .huevos h2{
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(40px, 5vw, 86px);
   text-transform: uppercase;
-  margin: 0 0 20px;
+  margin: 0 0 20px 4%;
   letter-spacing: 2px;
   color: #000;
 }
@@ -155,7 +155,7 @@
 /* huevo protagonista */
 .eggslide__egg{
   position: absolute;
-  left: 6%;
+  left: 20%;
   bottom: 0;
   height: 100%;                                  /* base actual efectiva */
   width: auto;
@@ -175,10 +175,10 @@
 
 /* Ajustes responsivos del huevo */
 @media (max-width: 700px){
-  .eggslide__egg{ left: 4%; height: 100%; }
+  .eggslide__egg{ left: 20%; height: 100%; }
 }
 @media (min-width: 1200px){
-  .eggslide__egg{ left: 10%; height: 100%; }
+  .eggslide__egg{ left: 20%; height: 100%; }
 }
 
 /* ==========================================================================
@@ -203,3 +203,7 @@
   object-position: center;
   border-radius: 16px;
 }
+
+.carousel__btn{
+margin-left:5%;
+margin-right:5% }

@@ -6,14 +6,14 @@
 
     <div class="historia__grid">
   <div class="historia__text">
-    <p>
+    <p style="margin-left:4%; margin-right:4%">
       En Bocayuva, Pellegrini, provincia de Buenos Aires, levantamos nuestros gallineros.
       Somos productores locales y lo que hacemos nace de la vida misma en el campo.
-      Clara y Ema empezó como empiezan muchas cosas: con una idea simple y mucho trabajo.
-      Queríamos criar gallinas de manera sana y ofrecer huevos frescos, de confianza, a la gente de nuestra zona.
+      Clara y Ema empezó como lo hacen muchas cosas: con una idea simple y mucho trabajo.
+      Nuestro objetivo es criar gallinas de manera sana y ofrecer huevos frescos, de confianza, a la gente de nuestra zona.
       No buscamos contar grandes cosas de nosotros. Lo importante está en el día a día, en lo que producimos y en lo
       que llega a tu mesa.
-      Lo nuestro nace de una historia real, de esfuerzo, de tierra, de campo.
+      Clara y Ema nace de una historia real, de esfuerzo, de tierra, de campo.
     </p>
 
     <!-- 🔽 Video insertado entre los dos párrafos -->
@@ -28,7 +28,6 @@
         <source src="/img/video.mp4" type="video/mp4">
         Tu navegador no soporta la reproducción de video.
       </video>
-      <span class="historia__pic-label">NUESTRA GRANJA</span>
     </div>
 
     <p class="historia__envio">Envío en Trenque Lauquen o retiro en nuestros puntos de venta.</p>

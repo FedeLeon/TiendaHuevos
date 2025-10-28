@@ -1,81 +1,180 @@
-/* ============ FUENTE DISPLAY: 28 Days Later ============ */
+/* ================== TIPOGRAFÍAS ================== */
 @font-face{
   font-family: 'TwentyEightDaysLater';
   src:
     local('28 Days Later'),
-    url('/assets/fonts/28 Days Later.ttf') format('truetype');
+    url('/assets/fonts/Super Kindly.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
-/* ============ FUENTE SECUNDARIA: Bebas Neue ============ */
 @font-face{
-  font-family: 'Bebas Neue';
+  font-family: 'Arial Rounded';
   src:
-    local('Bebas Neue'),
-    url('/assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+    local('Arial Rounded'),
+    url('/assets/fonts/arialroundedmtbold.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* ================== PALETA Y BASE ================== */
+/* ================== VARIABLES ================== */
 :root{
-  --orange:#f7931e;
-  --black:#0a0a0a;
+  --orange:#f7931e;   /* naranja */
+  --peach:#f3d8ad;    /* durazno */
+  --black:#0a0a0a;    /* solo header/footer */
   --white:#ffffff;
-  --muted:rgba(255,255,255,.86);
-  --ink:#1b1b1b;
-  --card:#ffffff;
+  --ink:#1b1b1b;      /* texto principal */
+  --muted:rgba(0,0,0,.65);
   --line:#e8e8e8;
+
+  /* métricas */
+  --container:1320px;
+  --gutter:22px;
+  --radius:12px;
+  --shadow:0 6px 22px rgba(0,0,0,.06);
 }
 
+/* ================== RESET MINIMAL ================== */
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 body{
   margin:0;
-  color:var(--white);
-  background:#1b1b1b; /* margen exterior */
-  font-family:'Bebas Neue', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family:'Arial Rounded', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   line-height:1.45;
+  color:var(--ink);
+  background:var(--white);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
+img,svg,video{ max-width:100%; display:block; height:auto; }
+h1,h2,h3,h4,h5,h6,p,ul,ol{ margin:0; }
+a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
 
-/* Títulos usan la display */
+/* ================== TITULARES ================== */
 h1,h2{
   font-family:'TwentyEightDaysLater', system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
   font-weight:400;
+  color:var(--ink);
 }
+h1{ font-size: clamp(38px, 4.5vw, 60px); letter-spacing:1px; }
+h2{ font-size: clamp(28px, 3.2vw, 42px); letter-spacing:.5px; }
 
-/* Contenedores genéricos */
-.page{ width:100%; background:var(--black); }
-.container{ max-width:1320px; margin:0 auto; padding:0 22px; }
+/* ================== LAYOUT BASE ================== */
+.container{ max-width:var(--container); margin:0 auto; padding:0 var(--gutter); }
 .section{ position:relative; overflow:hidden; }
-.section--black{ background:var(--black); color:var(--white); }
-.section--orange{ background:var(--orange); color:var(--ink); }
-.wrap{ padding:28px 18px; max-width:1200px; margin-inline:auto; }
-.wrap--tight{ padding:22px 16px; }
-.wrap--center{ padding:40px 18px; text-align:center; }
+.wrap{ padding:40px 0; }
+.wrap--tight{ padding:24px 0; }
+.wrap--xl{ padding:64px 0; }
 
-/* Separadores curvos (SVG) */
-.shape{ position:absolute; left:0; right:0; width:100%; }
-.shape--bottom{ bottom:-1px; height:64px; }
-.shape--bottom svg{ display:block; width:100%; height:100%; }
-.section--black  .shape--bottom path{ fill:var(--orange); }
-.section--orange .shape--bottom path{ fill:var(--black); }
-.to-black  path{ fill:var(--black)!important; }
-.to-orange path{ fill:var(--orange)!important; }
-
-/* Títulos “sello” */
-.title-stamp{
-  letter-spacing:1.5px; text-transform:uppercase;
-  margin:2px 0 10px 0; font-size: 55px;
+/* ================== COLORES DE SECCIÓN ==================
+   Header y footer = negro.
+   Dentro de .page arranca alternancia desde el HERO:
+   1º (hero) peach, 2º orange, 3º peach, 4º orange...
+========================================================== */
+.page{ width:100%; background:transparent; } /* nada de negro acá */
+.page > .section:nth-of-type(odd){
+  background:var(--peach);
+  color:var(--ink);
 }
-.title-stamp span{ display:block; }
-.title-stamp.sm{ font-size:14px; color:#261300; opacity:.9; }
+.page > .section:nth-of-type(even){
+  background:var(--orange);
+  color:var(--ink);
+}
 
-/* Utilidades */
-h1,h2,h3,p{ margin:0; }
-img{ max-width:120%; height:auto; }
+/* ====== Header/Footer negros (fuera de .page) ====== */
+header.section--black,
+footer.section--black{
+  background:var(--black);
+  color:var(--white);
+}
+
+/* ====== Helpers explícitos por si se usan manualmente ====== */
+.section--peach{ background:var(--peach); color:var(--ink); }
+.section--orange{ background:var(--orange); color:var(--ink); }
+.section--black{  background:var(--black);  color:var(--white); }
+
+/* ================== TIPOGRAFÍA Y CONTENIDO ================== */
+.lead{ font-size:clamp(18px, 1.6vw, 22px); color:var(--ink); }
+.muted{ color:var(--muted); }
+strong,b{ font-weight:700; }
+
+/* ================== COMPONENTES BÁSICOS ================== */
+.btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:8px;
+  border:2px solid currentColor;
+  font-weight:700;
+  text-decoration:none;
+  transition:transform .08s ease, opacity .2s ease;
+  will-change:transform;
+}
+.btn:active{ transform:translateY(1px) scale(.99); }
+.btn--dark{ background:var(--black); color:var(--white); border-color:var(--black); }
+.btn--light{ background:var(--white); color:var(--ink); border-color:var(--ink); }
+.btn--ghost{ background:transparent; color:var(--ink); border-color:var(--ink); }
+
+/* Tarjetas sencillas */
+.card{
+  background:var(--white);
+  color:var(--ink);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+  padding:20px;
+}
+
+/* ================== GRILLA UTILITARIA ================== */
+.grid{ display:grid; gap:20px; }
+.grid--2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+.grid--3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+.grid--4{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+
+@media (max-width: 960px){
+  .grid--4{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 720px){
+  .grid--3, .grid--2, .grid--4{ grid-template-columns:1fr; }
+}
+
+/* ================== FORMULARIOS ================== */
+.input, select, textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--white);
+  color:var(--ink);
+  outline:none;
+}
+.input:focus, select:focus, textarea:focus{
+  border-color:#c9c9c9;
+  box-shadow:0 0 0 3px rgba(0,0,0,.06);
+}
+
+/* ================== SEPARADORES CURVOS (OPCIONAL) ================== */
+.shape{ position:absolute; left:0; right:0; width:100%; pointer-events:none; }
+.shape--bottom{ bottom:-1px; height:56px; }
+.shape--bottom svg{ display:block; width:100%; height:100%; }
+
+/* Rellenos de curva acordes a alternancia */
+.page > .section:nth-of-type(odd)  .shape--bottom path{ fill:var(--orange); }
+.page > .section:nth-of-type(even) .shape--bottom path{ fill:var(--peach); }
+
+/* ================== UTILIDADES ================== */
+.center{ text-align:center; }
+.max-800{ max-width:800px; margin-inline:auto; }
+.space-xs{ margin-top:8px; }
+.space-sm{ margin-top:14px; }
+.space-md{ margin-top:22px; }
+.space-lg{ margin-top:34px; }
+.hide{ display:none !important; }
+
+/* Estados de imagen que bordean lados curvos (opcional) */
+.img-raised{ border-radius:var(--radius); box-shadow:var(--shadow); }
+
+/* ================== ACCESIBILIDAD / MOVIMIENTOS ================== */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}

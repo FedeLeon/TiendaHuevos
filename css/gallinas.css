@@ -2,7 +2,7 @@
 
 /* Texto + estilos existentes */
 .gallinas .title-stamp {
-  font-size: 70px;
+  font-size: 86px;
   letter-spacing: 1.2px;
   margin-bottom: 12px;
   text-align: center;
@@ -10,7 +10,7 @@
 
 .gallinas .lead {
   font-size: 20px;
-  color: #dcdcdc;
+  color: #0a0a0a;
   margin: 0 auto;
   max-width: 520px;
   text-align: center;
@@ -135,3 +135,24 @@
     width: 40%;
   }
 }
+
+/* + ALTURA DEL BLOQUE (suma aire arriba/abajo) */
+.gallinas .wrap{               /* tu wrapper actual: wrap wrap--tight */
+  padding: 72px 0;
+  margin-bottom: 3%;            /* antes venía más chato */
+}
+@media (min-width:900px){
+  .gallinas .wrap{ padding: 96px 0; }
+}
+@media (min-width:1200px){
+  .gallinas .wrap{ padding: 112px 0; }
+}
+
+/* + ALTURA VISUAL DEL COLLAGE (opcional, por si querés aún más) */
+.gallinas .collage{ height: 420px; }              /* antes 340px */
+@media (min-width:640px){ .gallinas .collage{ height: 460px; } }
+@media (min-width:900px){ .gallinas .collage{ height: 500px; } }
+@media (min-width:1200px){ .gallinas .collage{ height: 540px; } }
+
+/* Alternativa (en lugar de lo de arriba): fijar una altura mínima total
+.gallinas{ min-height: 90svh; }  */

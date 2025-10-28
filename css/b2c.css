@@ -1,5 +1,5 @@
 /* ===================== B2C / COMPRA DIRECTA ===================== */
-.cta__text{ font-size:20px; text-transform:none; letter-spacing:.4px; opacity:.92; margin-bottom:2vw; margin-top: 10px;}
+.cta__text{ font-size:20px; text-transform:none; letter-spacing:.4px; opacity:.92; margin-bottom:2vw; margin-top: 10px; margin-left: 4%;}
 
 /* Reordenado sin tocar tu HTML: el contenedor es el primer DIV después del H2 */
 .cta .wrap > h2 + div{
@@ -95,3 +95,49 @@
 .btn--dark:hover {
   background: #232323;
 }
+
+
+/* ===== B2C: título más grande (sigue negro) ===== */
+.cta .title-stamp{
+  font-size: clamp(42px, 6.2vw, 88px);
+  margin-bottom: 14px;
+  margin-left: 4%;
+  color: var(--ink);
+  text-align: center;            /* quitá si lo querés a la izquierda en desktop */
+}
+@media (min-width:900px){
+  .cta .title-stamp{ text-align:left; }
+}
+
+/* ===== B2C: texto general NEGRO por defecto en la sección ===== */
+.cta{ color: var(--ink); }
+.cta :is(h1,h2,h3,h4,h5,h6,p,li,small,em,strong){ color: var(--ink); }
+
+/* ===== B2C: SOLO los bloques negros con tipografía BLANCA ===== */
+/* ✅ si podés, añadí class="cta-card" a los DIVs negros */
+.cta__pedido,
+.cta .cta-card{
+  color:#fff;
+}
+.cta__pedido :is(h1,h2,h3,h4,h5,h6,p,li,small,em,strong),
+.cta .cta-card :is(h1,h2,h3,h4,h5,h6,p,li,small,em,strong){
+  color:#fff;
+}
+
+/* ❌ si no podés tocar el HTML, usamos selectores por estilo inline (fallback) */
+.cta [style*="background:#0f0f0f"],
+.cta [style*="background: #0f0f0f"],
+.cta [style*="background:#111"],
+.cta [style*="background: #111"]{
+  color:#fff;
+}
+.cta [style*="background:#0f0f0f"] :is(h1,h2,h3,h4,h5,h6,p,li,small,em,strong),
+.cta [style*="background: #0f0f0f"] :is(h1,h2,h3,h4,h5,h6,p,li,small,em,strong),
+.cta [style*="background:#111"] :is(h1,h2,h3,h4,h5,h6,p,li,small,em,strong),
+.cta [style*="background: #111"] :is(h1,h2,h3,h4,h5,h6,p,li,small,em,strong){
+  color:#fff;
+}
+
+/* opcional: más aire vertical en la sección */
+.cta .wrap{ padding:72px 0; }
+@media (min-width:900px){ .cta .wrap{ padding:96px 0; } }
